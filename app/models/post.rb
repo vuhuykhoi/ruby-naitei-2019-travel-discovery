@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   belongs_to :travel_place
 
   validates :user_id, presence: true
-  validates :travel_places_id, presence: true
+  validates :travel_place_id, presence: true
   validates :title, presence: true
   validates :content, presence: true
 end
