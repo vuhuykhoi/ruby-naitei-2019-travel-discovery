@@ -1,4 +1,52 @@
 en:
+  time_ago: "%{time} ago"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      about_x_years:
+        one: about 1 year
+        other: about %{count} years
+      almost_x_years:
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_seconds:
+        one: less than 1 second
+        other: less than %{count} seconds
+      less_than_x_minutes:
+        one: less than a minute
+        other: less than %{count} minutes
+      over_x_years:
+        one: over 1 year
+        other: over %{count} years
+      x_seconds:
+        one: 1 second
+        other: "%{count} seconds"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_days:
+        one: 1 day
+        other: "%{count} days"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
+      x_years:
+        one: 1 year
+        other: "%{count} years"
+    prompts:
+      second: Seconds
+      minute: Minute
+      hour: Hour
+      day: Day
+      month: Month
+      year: Year
+
   title: "Travel Discovery"
   page_title:
     login: "Log in"
@@ -56,6 +104,8 @@ en:
     login: "Log in"
     save_change: "Save change"
     search: "Search"
+    follow: "+ Follow"
+    unfollow: "Unfollow"
 
   label:
     signup: "Sign up"
@@ -67,9 +117,42 @@ en:
     new_user_ques: "New user ?"
     remember_me: "Remember me"
     user : "User"
+    comment:
+      zero: "%{count} Comment"
+      one: "%{count} Comment"
+      other: "%{count} Comments"
+    like:
+      zero: "%{count} Like"
+      one: "%{count} Like"
+      other: "%{count} Likes"
+    post:
+      zero: "Post"
+      one: "Post"
+      other: "Posts"
+    followers: "Followers"
+    following: "Following"
+
   flash:
     danger:
       invalid_user_infor: "You have entered an invalid username or password!"
       user_not_found: "User not found"
+      require_login_message: "Please log in."
     success:
       welcome_message: "Welcome to travel discovery"
+
+  views:
+    pagination:
+      first: "« FIRST"
+      last: "LAST »"
+      previous: "‹ PREV"
+      next: "NEXT ›"
+      truncate: "…"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "Displaying <b>1</b> %{entry_name}"
+          other: "Displaying <b>all %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Displaying %{entry_name} <b>%{first} - %{last}</b> of <b>%{total}</b> in total"

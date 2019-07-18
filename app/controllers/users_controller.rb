@@ -21,6 +21,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @posts = @user.posts.create_desc.page(
+      params[:page]
+    ).per Settings.num_feeds_per_page
     redirect_to(root_url) && return unless @user
   end
 
