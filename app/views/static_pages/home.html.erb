@@ -79,7 +79,7 @@
       <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
         <div class="h-entry">
           <% if post.post_images.first %>
-            <%= image_tag(post.post_images.first.link, class: "img-fluid popular_post_image") %>
+            <%= image_tag(post.post_images.first.link.url, class: "img-fluid popular_post_image") %>
           <% end %>
           <div class="h-entry-inner">
             <h2 class="font-size-regular">

@@ -2,7 +2,6 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-
 /* mixins, variables, etc. */
 $gray-medium-light: #eaeaea;
 $whisper: #e8e8e8;
@@ -42,6 +41,11 @@ footer {
       margin-left: 15px;
     }
   }
+}
+
+/* Up Post Card*/
+.up-post-card{
+   margin-bottom: 20px;
 }
 
 /* Profile Card */
@@ -138,6 +142,7 @@ aside {
       display: block inline;
       font-size: medium;
       float: left;
+
     }
     .like {
       color: $gray-light;
@@ -173,7 +178,7 @@ aside {
   }
 }
 
-/*Modal*/
+/*Modal Like*/
 .list-like-modal{
   .modal-dialog{
     overflow-y: initial !important
@@ -184,6 +189,7 @@ aside {
   }
 }
 
+/*Modal Comment*/
 .list-comment-modal{
   .modal-dialog{
     overflow-y: initial !important
@@ -196,13 +202,28 @@ aside {
     padding-left: 10px;
     padding-right: 10px;
   }
+  .comment-timestamp {
+    color: $gray-light;
+    font-size: small;
+  }
+  .comment-content{
+    display: block;
+  }
+  .comment-edit{
+    float:right;
+  }
 }
 
-.list_post{
-  width: 700px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+textarea{
+  width:100%;
+  height:100%;
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
 }
 
 /*Auto complete*/
@@ -212,26 +233,34 @@ ul.ui-autocomplete {
   list-style: none;
   margin: 0;
   padding: 0;
+  border: solid 1px #999;
   cursor: default;
   max-height: 200px;
   overflow-y: auto;
   overflow-x: hidden;
-  border: 2px solid #FFF;
   li {
     background-color: #FFF;
-    border: 2px solid #FFF;
+    border-top: solid 1px #DDD;
     margin: 0;
     padding: 0;
     a {
-      color: $gray-medium-light;
+      color: #000;
       display: block;
       padding: 3px;
     }
     a.ui-state-hover, a.ui-state-active {
-      background-color: $white-smoke;
+      background-color: #FFFCB2;
     }
   }
 }
+
+.list_post{
+  width: 700px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .site-blocks-cover.overlay {
   overflow: hidden;
 }

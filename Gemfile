@@ -6,6 +6,7 @@ ruby "2.5.3"
 gem "bcrypt"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap4-kaminari-views"
+gem "cloudinary"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "faker"
@@ -14,7 +15,6 @@ gem "kaminari"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.3"
 gem "sass-rails", "~> 5.0"
-gem "sqlite3"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 
@@ -37,7 +37,6 @@ group :test do
 end
 
 group :production do
-  gem "fog", "1.42"
   gem "pg", "0.20.0"
 end
 

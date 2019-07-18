@@ -17,5 +17,8 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: %i(create destroy)
   resources :reactions, only: %i(show create destroy)
-  resources :comments, only: %i(show create destroy)
+  resources :comments, only: %i(show edit create destroy)
+  resources :posts, only: %i(create destroy)
+  resources :travel_places, only: :index
+  resources :cities, only: :index
 end

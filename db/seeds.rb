@@ -18,11 +18,11 @@ cities = City.order(:created_at).take(3)
 type_travel_places = TypeTravelPlace.order(:created_at)
 cities.each do |city|
   type_travel_places.each do |type_travel_place|
-    10.times do
+    5.times do
       TravelPlace.create! name: Faker::Restaurant.name,
         content: Faker::Restaurant.description,
         address: Faker::Address.street_address,
-        rate: Faker::Number.between(1,5),
+        rate_point: 2.5,
         city_id: city.id,
         type_travel_place_id: type_travel_place.id
     end
@@ -60,55 +60,55 @@ User.create! username:  "admin",
   activated: true,
   activated_at: Time.zone.now
 
-50.times do |n|
+10.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
   User.create! username:  name,
     email: email,
     gender: Faker::Gender.binary_type,
-    date_of_birth: Faker::Date.between(50.years.ago, 10.years.ago),
+    date_of_birth: Faker::Date.between(from: 50.years.ago,to: 10.years.ago),
     password: password,
     password_confirmation: password,
     activated: true,
     activated_at: Time.zone.now
 end
 
-users = User.order(:id).take(5)
+users = User.order(:id).take(2)
 users.each do |user|
-    16.times do
-      Post.create! title: Faker::Lorem.sentence(3, true, 4),
-                   content: Faker::Lorem.paragraph(2, false, 4),
-                   vote_point: Faker::Number.between(1,5),
-                   view: Faker::Number.number(3),
+    7.times do
+      Post.create! title: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4),
+                   content: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
+                   vote_point: Faker::Number.between(from: 1,to: 5),
+                   view: Faker::Number.between(from: 1,to: 20),
                    user_id: user.id,
-                   travel_place_id: Faker::Number.between(1,50)
+                   travel_place_id: Faker::Number.between(from: 1,to: 30)
     end
 end
 
-posts = Post.order(:created_at)
+posts = Post.all
 posts.each do |post|
    case post.travel_place.type_travel_place_id
     when 1
       3.times do |i|
-        PostImage.create! link: "https://res.cloudinary.com/hedspi/image/upload/v1564448966/travel-discovery/hotels/#{i+1}.jpg",
+        PostImage.create! remote_link_url: "https://res.cloudinary.com/hedspi/image/upload/v1564448966/travel-discovery/hotels/#{i+1}.jpg",
                        post_id: post.id
       end
     when 2
-       4.times do |i|
-        PostImage.create! link: "https://res.cloudinary.com/hedspi/image/upload/v1564448966/travel-discovery/play_places/#{i+1}.jpg",
+       2.times do |i|
+        PostImage.create! remote_link_url: "https://res.cloudinary.com/hedspi/image/upload/v1564448966/travel-discovery/play_places/#{i+1}.jpg",
                        post_id: post.id
       end
     when 3
-       5.times do |i|
-        PostImage.create! link: "https://res.cloudinary.com/hedspi/image/upload/v1564448966/travel-discovery/food/#{i+1}.jpg",
+       3.times do |i|
+        PostImage.create! remote_link_url: "https://res.cloudinary.com/hedspi/image/upload/v1564448966/travel-discovery/food/#{i+1}.jpg",
                        post_id: post.id
       end
     end
 end
 
-users = User.order(:created_at).take(24)
-posts = Post.order(:created_at).take(32)
+users = User.order(:created_at).take(5)
+posts = Post.order(:created_at).take(10)
 posts.each do |post|
   users.each do |user|
     Comment.create! content: Faker::Lorem.sentence,
@@ -122,8 +122,8 @@ ReactionType.create(
 )
 
 reaction_type_id = ReactionType.first.id
-users = User.order(:created_at).take(32)
-posts = Post.order(:created_at).take(26)
+users = User.order(:created_at).take(5)
+posts = Post.order(:created_at).take(12)
 posts.each do |post|
   users.each do |user|
     Reaction.create! reaction_type_id: reaction_type_id,
@@ -134,7 +134,7 @@ end
 
 users = User.all
 user  = users.first
-following = users[2..50]
-followers = users[3..40]
+following = users[2..5]
+followers = users[3..9]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }

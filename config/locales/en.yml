@@ -46,7 +46,6 @@ en:
       day: Day
       month: Month
       year: Year
-
   title: "Travel Discovery"
   page_title:
     login: "Log in"
@@ -98,12 +97,10 @@ en:
       other: "Other"
       popular-places: "Popular Places"
       popular-posts: "Popular Posts"
-  
   search:
     index:
       title: "Search"
       not_found: "Not Found!"
-  
   button:
     create_account: "Sign Up"
     login: "Log in"
@@ -113,13 +110,17 @@ en:
     unfollow: "Unfollow"
     like: "Like"
     unlike: "Unlike"
-
+    comment: "Comment"
+    close: "Close"
+    edit: "Edit"
+    delete: "Delete"
+    post: "Post"
   label:
     signup: "Sign up"
     email: "Email"
     password: "Password"
     login: "Log in"
-    what: "What are you looking for ?"
+    search_place_name: "What are you looking for ?"
     location: "Location"
     new_user_ques: "New user ?"
     remember_me: "Remember me"
@@ -138,6 +139,7 @@ en:
       other: "Posts"
     followers: "Followers"
     following: "Following"
+    post_content: "What's on your mind?"
 
   flash:
     danger:
@@ -146,7 +148,11 @@ en:
       require_login_message: "Please log in."
     success:
       welcome_message: "Welcome to travel discovery"
+      micropost_deleted: "Deleted post success"
 
+  dialog:
+    delete_comment_confirm: "Are you sure to delete this comment?"
+    delete_post_confirm: "Are you sure to delete this post?"
   views:
     pagination:
       first: "« FIRST"
