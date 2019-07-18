@@ -25,9 +25,7 @@
             <div class="col-md-12">
               <%= f.label :date_of_birth, class: "text-black" %>
               <div>
-                <%= f.date_select :date_of_birth, {order: [:day,:month, :year],
-                prompt: { day: 'Select day', month: 'Select month', year: 'Select year' },
-                 start_year: Date.today.year - 18, end_year: Date.today.year - 100} %>
+                <%= f.date_field :date_of_birth %>
               </div>
             </div>
           </div>

@@ -19,6 +19,9 @@ class Post < ApplicationRecord
   delegate :name, to: :travel_place, prefix: :travel_place, allow_nil: true
   delegate :address, to: :travel_place, prefix: :travel_place, allow_nil: true
 
+  POST_PARAMS = [:title, :content, :travel_place_id,
+  post_images_attributes: [:id, :post_id, :image]].freeze
+
   def num_of_likes
     reactions.where("reaction_type_id = ?", Settings.reaction_type.like).count
   end

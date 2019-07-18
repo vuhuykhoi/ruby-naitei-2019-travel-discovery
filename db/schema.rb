@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(version: 2019_08_09_074414) do
     t.index ["rater_id"], name: "index_average_caches_on_rater_id"
   end
 
+  create_table "average_caches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "rater_id"
+    t.string "rateable_type"
+    t.bigint "rateable_id"
+    t.float "avg", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rateable_type", "rateable_id"], name: "index_average_caches_on_rateable_type_and_rateable_id"
+    t.index ["rater_id"], name: "index_average_caches_on_rater_id"
+  end
+
   create_table "cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -70,7 +81,6 @@ ActiveRecord::Schema.define(version: 2019_08_09_074414) do
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "title"
     t.text "content"
-    t.float "vote_point"
     t.integer "view"
     t.bigint "user_id"
     t.bigint "travel_place_id"
@@ -172,11 +182,6 @@ ActiveRecord::Schema.define(version: 2019_08_09_074414) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.boolean "admin", default: false
-    t.string "activation_digest"
-    t.boolean "activated", default: false
-    t.datetime "activated_at"
-    t.string "reset_digest"
-    t.datetime "reset_sent_at"
     t.string "avatar"
     t.string "provider"
     t.string "uid"
