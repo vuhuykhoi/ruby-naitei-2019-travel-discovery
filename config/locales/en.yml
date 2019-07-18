@@ -146,6 +146,10 @@ en:
     followers: "Followers"
     following: "Following"
     post_content: "What's on your mind?"
+    notification:
+      deleted: "but the notifiable is not found. It may have been deleted."
+      commented: "commented"
+      liked: "liked"
 
   flash:
     danger:

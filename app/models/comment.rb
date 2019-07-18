@@ -8,4 +8,12 @@ class Comment < ApplicationRecord
   validates :user_id, presence: true
   validates :post_id, presence: true
   validates :content, presence: true
+
+  acts_as_notifiable :users,
+    targets: ->(comment, _key){([comment.post.user] + comment.post.commented_users.to_a - [comment.user]).uniq},
+    notifiable_path: :post_notifiable_path
+
+  def post_notifiable_path
+    post_path(post)
+  end
 end

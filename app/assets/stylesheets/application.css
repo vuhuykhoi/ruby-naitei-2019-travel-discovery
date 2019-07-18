@@ -3,4 +3,5 @@
  *= require_tree ../../../vendor/assets/stylesheets/customer/css
  *= require_tree ../../../vendor/assets/stylesheets/customer/fonts
  *= require custom
+ *= require notification
  */

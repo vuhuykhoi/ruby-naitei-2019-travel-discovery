@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html
       if @comment.save
+        Notifications::CommentReplyService.new(@comment).perform
         @list_post_comments = Comment.create_desc.list_post_comments @post_id
         format.js{flash[:success] = t "flash.success.comment_created"}
       else

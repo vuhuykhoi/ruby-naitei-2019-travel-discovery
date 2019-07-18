@@ -45,8 +45,9 @@ end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem "activity_notification"
 gem "bootstrap-sass", "3.3.7"
-gem "carrierwave"
+gem "carrierwave", "1.3.1"
 gem "devise"
 gem "fastclick-rails"
 gem "figaro"

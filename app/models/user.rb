@@ -32,6 +32,7 @@ class User < ApplicationRecord
   length: {minimum: Settings.user.validates.min_pass_length}
 
   ratyrate_rater
+  acts_as_target
 
   def self.liked_post_users reaction_type_id, post_id
     joins(:reactions).where("reaction_type_id = ? and post_id = ?",
