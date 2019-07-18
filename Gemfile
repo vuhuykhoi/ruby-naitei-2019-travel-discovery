@@ -59,4 +59,5 @@ gem "jquery-ui-rails"
 gem "mini_magick"
 gem "omniauth-facebook"
 gem "rails-i18n"
+gem "ratyrate"
 gem "rubocop", "~> 0.54.0", require: false

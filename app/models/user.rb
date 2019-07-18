@@ -31,6 +31,8 @@ class User < ApplicationRecord
   validates :password, presence: true, allow_nil: true,
   length: {minimum: Settings.user.validates.min_pass_length}
 
+  ratyrate_rater
+
   def self.liked_post_users reaction_type_id, post_id
     joins(:reactions).where("reaction_type_id = ? and post_id = ?",
       reaction_type_id, post_id)

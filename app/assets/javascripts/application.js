@@ -3,5 +3,7 @@
 //= require customer/js/bootstrap.min
 //= require custom
 //= require rails-ujs
+//= require jquery.raty
+//= require ratyrate
 //= require activestorage
 //= require turbolinks

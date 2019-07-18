@@ -30,7 +30,16 @@ $(function() {
 
 $(function() {
   return $('#city_name').autocomplete({
-    source: $('#city_name').data('autocomplete-source')
+    source: $('#city_name').data('autocomplete-source'),
+    change: function(event,ui){
+      if (ui.item === null) {
+          $(this).val("");
+          $('#err_city_name').addClass("err-msg");
+          $('#err_city_name').html(I18n.t("js_msg.city_not_found"));
+      }else{
+        $('#err_city_name').empty();
+      }
+    }
   });
 });
 
@@ -52,6 +61,16 @@ $(function() {
             source: firstProp,
             select: function(event,ui){
               $("#travel_place_id").val(ui.item["id"]);
+            },
+            change: function(event,ui){
+              if (ui.item === null) {
+                  $(this).val("");
+                  $('#travel_place_id').val("");
+                  $('#err_place_name').addClass("err-msg");
+                  $('#err_place_name').html(I18n.t("js_msg.travel_place_not_found"));
+              }else{
+                $('#err_place_name').empty();
+              }
             }
           });
         }
