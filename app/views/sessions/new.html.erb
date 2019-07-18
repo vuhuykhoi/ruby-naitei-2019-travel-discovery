@@ -2,16 +2,14 @@
 <% provide :header_partial, "shared/header_partial/title" %>
 
 <div class="site-section bg-light">
+
   <div class="container">
     <div class="row">
+
       <div class="col-md-6 offset-md-3">
         <%= form_for :session, url: login_path,
-        :html => {class: "p-5 bg-white",style: "margin-top: -150px;"}  do |f| %>
-
-          <% flash.each do |message_type, message| %>
-            <div class="alert alert-<%= message_type %>"><%= message %></div>
-          <% end %>
-
+        :html => {class: "p-5 bg-white",style: "margin-top: -150px;"},remote: true  do |f| %>
+          <div class= "alert"></div>
           <div class="row form-group">
             <div class="col-md-12">
               <%= f.label t("label.email"), class: "text-black" %>

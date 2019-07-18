@@ -9,8 +9,10 @@ class SessionsController < ApplicationController
       check_remember_box user
       redirect_back_or user
     else
-      flash.now[:danger] = t("flash.danger.invalid_user_infor")
-      render :new
+      respond_to do |format|
+        format.html{render :new}
+        format.js{flash[:danger] = t("flash.danger.invalid_user_infor")}
+      end
     end
   end
 

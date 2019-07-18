@@ -1,13 +1,15 @@
-<div class="card post-card">
-  <li id="post-<%= post.id %>">
+<div class="card post-card" id="post-<%= post.id %>">
+  <li>
+  <%= link_to gravatar_for(post.user, size: Settings.user.gravatar_post_size), post.user %>
+  <span class="user"><%= link_to post.user.username, post.user %></span>
 
-    <%= link_to gravatar_for(post.user, size: Settings.user.gravatar_post_size), post.user %>
-    <span class="user"><%= link_to post.user.username, post.user %></span>
-
-    <span class="timestamp">
-      <%= t("label.posted") %> <%= I18n.t(:time_ago,time: time_ago_in_words(post.created_at) )%>.
-    </span>
-
+  <span class="timestamp">
+    <%= t("label.posted") %> <%= I18n.t(:time_ago,time: time_ago_in_words(post.created_at) )%>.
+    <% if current_user?(post.user) %>
+    <%= link_to t("button.delete"), post, method: :delete,
+                                     data: { confirm: t("dialog.delete_post_confirm"),remote: true } %>
+    <% end %>
+  </span>
     <span class="content">
 
       <div class="card address-card">
@@ -24,6 +26,12 @@
 
       <% if !post.post_images.empty? %>
       <div id="imagesAlbum-<%= post.id %>" class="carousel slide " data-ride="carousel" data-interval="false">
+        <ol class="carousel-indicators">
+          <% num_of_images = post.post_images.count %>
+          <% post.post_images.each_with_index do |img, i| %>
+          <li data-target="#imagesAlbum-<%= post.id %>" data-slide-to="<%= i%>" class="<%= (i == 0)? 'active': '' %>"></li>
+          <% end %>
+        </ol>
         <div class="carousel-inner">
           <% num_of_images = post.post_images.count %>
           <% post.post_images.each_with_index do |img, i| %>
@@ -59,11 +67,13 @@
       </span>
 
       <span class= "comment">
-        <%= link_to "#" do %>
-        <% num_of_comments = post.num_of_comments %>
-        <%= I18n.t(:"label.comment", count: num_of_comments)%>
-       </span>
+        <%= link_to comment_path(post.id), remote: true do %>
+        <span id="num_of_comments-<%= post.id %>">
+          <% num_of_comments = post.num_of_comments %>
+          <%= I18n.t(:"label.comment", count: num_of_comments)%>
+        </span>
        <% end %>
+      </span>
     </span>
   </li>
 

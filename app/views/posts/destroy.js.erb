@@ -1,0 +1,4 @@
+console.log(<%=@post_id %>);
+$("#post-<%= @post_id %>").fadeOut();
+$(".alert").html("<%= escape_javascript(render partial: 'shared/flash_messages',locals: {flash: flash }) %>");
+<% flash.clear() %>
