@@ -48,7 +48,6 @@ $(function() {
               firstProp.push(data[i])
             }
           }
-          console.log(firstProp);
           return $('#post_travel_place_name').autocomplete({
             source: firstProp,
             select: function(event,ui){

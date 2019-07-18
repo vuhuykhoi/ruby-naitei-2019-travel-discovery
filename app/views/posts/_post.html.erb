@@ -5,7 +5,7 @@
 
   <span class="timestamp">
     <%= t("label.posted") %> <%= I18n.t(:time_ago,time: time_ago_in_words(post.created_at) )%>.
-    <% if current_user?(post.user) %>
+    <% if current_user == post.user %>
     <%= link_to t("button.delete"), post, method: :delete,
                                      data: { confirm: t("dialog.delete_post_confirm"),remote: true } %>
     <% end %>
@@ -78,7 +78,7 @@
   </li>
 
   <div class= "card-footer">
-  <%= render "like_form",post_id: post.id if logged_in? %>
+  <%= render "like_form",post_id: post.id if user_signed_in? %>
   </div>
 
 </div>
