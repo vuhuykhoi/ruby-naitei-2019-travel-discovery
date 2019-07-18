@@ -106,6 +106,8 @@ en:
     search: "Search"
     follow: "+ Follow"
     unfollow: "Unfollow"
+    like: "Like"
+    unlike: "Unlike"
 
   label:
     signup: "Sign up"

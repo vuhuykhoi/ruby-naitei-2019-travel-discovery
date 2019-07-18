@@ -8,7 +8,7 @@ user:
   gravatar_size: 80
   gravatar_size_small: 50
   gravatar_post_size: 42
-  gravatar_size_mini: 30
+  gravatar_size_mini: 25
   gender:
     male: "Male"
     female: "Female"
