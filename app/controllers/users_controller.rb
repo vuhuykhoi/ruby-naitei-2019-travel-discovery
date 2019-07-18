@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i(index edit update destroy)
-  before_action :load_user, only: %i(show edit update destroy)
+  before_action :load_user,
+    only: %i(show edit update following followers)
   before_action :correct_user, only: %i(edit update)
-  before_action :admin_user, only: %i(destroy)
+  before_action :admin_user, only: :destroy
 
   def new
     @user = User.new
@@ -49,18 +50,23 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def following
+    @title = t "label.following"
+    @users = @user.following.page params[:page]
+    render :show_follow
+  end
+
+  def followers
+    @title = t "label.followers"
+    @users = @user.followers.page params[:page]
+    render :show_follow
+  end
+
   private
 
   def user_params
     params.require(:user).permit :username, :email, :date_of_birth, :gender,
       :password, :password_confirmation
-  end
-
-  def logged_in_user
-    return if logged_in?
-    store_location
-    flash[:danger] = t("flash.danger.require_login_message")
-    redirect_to login_url
   end
 
   def correct_user
