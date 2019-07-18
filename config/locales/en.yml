@@ -46,7 +46,6 @@ en:
       day: Day
       month: Month
       year: Year
-
   title: "Travel Discovery"
   page_title:
     login: "Log in"
@@ -108,7 +107,11 @@ en:
     unfollow: "Unfollow"
     like: "Like"
     unlike: "Unlike"
-
+    comment: "Comment"
+    close: "Close"
+    edit: "Edit"
+    delete: "Delete"
+    post: "Post"
   label:
     signup: "Sign up"
     email: "Email"
@@ -133,6 +136,7 @@ en:
       other: "Posts"
     followers: "Followers"
     following: "Following"
+    post_content: "What's on your mind?"
 
   flash:
     danger:
@@ -142,6 +146,9 @@ en:
     success:
       welcome_message: "Welcome to travel discovery"
 
+  dialog:
+    delete_comment_confirm: "Are you sure to delete this comment?"
+    delete_post_confirm: "Are you sure to delete this post?"
   views:
     pagination:
       first: "« FIRST"

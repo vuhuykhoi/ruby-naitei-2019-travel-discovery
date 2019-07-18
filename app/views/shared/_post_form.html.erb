@@ -1,0 +1,19 @@
+<%= form_for current_user.posts.build do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="field">
+     <%= f.label :Travel_Place, class: "text-black" %>
+    <%= f.text_field :travel_place_id, class: "form-control" %>
+  </div>
+  <div class="field">
+     <%= f.label :Title, class: "text-black" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="field">
+     <%= f.label :Content, class: "text-black" %>
+    <%= f.text_area :content, placeholder: t("label.post_content"),class: "form-control" %>
+  </div>
+  <%= f.submit t("button.post"), class: "btn btn-primary" %>
+  <span class="picture">
+    <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
+  </span>
+<% end %>

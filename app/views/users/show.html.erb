@@ -20,6 +20,11 @@
       </aside>
 
       <div class="col-md-8">
+        <% if current_user?(@user) %>
+          <section class="card up-post-card">
+            <%= render "shared/post_form" %>
+          </section>
+        <% end %>
         <% if @user.posts.any? %>
           <ol class="posts">
             <%= render @posts %>
