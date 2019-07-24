@@ -38,4 +38,12 @@ end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem "bootstrap-sass", "3.3.7"
+gem "fastclick-rails"
+gem "font-awesome-sass", "~> 4.7.0"
+gem "ionicons-rails"
+gem "jquery"
+gem "jquery-rails"
+gem "jquery-slimscroll-rails"
+gem "rails-i18n"
 gem "rubocop", "~> 0.54.0", require: false

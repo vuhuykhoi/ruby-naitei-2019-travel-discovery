@@ -1,0 +1,101 @@
+  <header class="main-header">
+    <nav class="navbar navbar-static-top">
+      <%= link_to "#", class: "sidebar-toggle",data: {toggle: "push-menu"}, role: "button" do %>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      <% end %>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <li class="messages-menu">
+            <%= link_to t ".english", locale: Settings.en %>
+          </li>
+          <li class="notifications-menu">
+            <%= link_to t ".vietnamese", locale: Settings.vi %>
+          </li>
+
+          <li class="dropdown user user-menu">
+            <%= link_to "#", class: "dropdown-toggle",data: {toggle: "dropdown"} do %>
+            <%= image_tag("user1-128x128.jpg", class: "user-image") %>
+            <span class="hidden-xs">Alexander Pierce</span>
+            <% end %>
+            <ul class="dropdown-menu">
+              <li class="user-header">
+                <%= image_tag("user1-128x128.jpg", class: "img-circle") %>
+              </li>
+              <li class="user-footer">
+                <div class="pull-left">
+                  <%= link_to t(".profile"), "#", class: "btn btn-default btn-flat" %>
+                </div>
+                <div class="pull-right">
+                  <%= link_to t(".sign-out"), "#", class: "btn btn-default btn-flat" %>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <%= link_to "#", data: {toggle: "control-sidebar"} do %>
+            <i class="fa fa-gears"></i>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <aside class="main-sidebar">
+    <section class="sidebar">
+      <div class="user-panel">
+        <div class="pull-left image">
+          <%= image_tag("user1-128x128.jpg", class: "img-circle") %>
+        </div>
+        <div class="pull-left info">
+          <p>Alexander Pierce</p>
+          <%= link_to "#" do %>
+            <i class="fa fa-circle text-success"></i><%= t ".online" %>
+          <% end %>
+        </div>
+      </div>
+
+      <%= form_tag("#", method: "get", class: "sidebar-form") do %>
+        <div class="input-group">
+          <%= text_field_tag(:q) %>
+          <span class="input-group-btn">
+            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+        </div>
+      <% end %>
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header"><%= t ".place" %></li>
+        <li>
+          <%= link_to("#") do %>
+          <i class="fa fa-circle-o text-red"></i> <span><%= t ".city" %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to("#") do %>
+          <i class="fa fa-circle-o text-yellow"></i> <span><%= t ".hotel" %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to("#") do %>
+          <i class="fa fa-circle-o text-aqua"></i> <span><%= t ".playground" %></span>
+          <% end %>
+        </li>
+        <li class="header"><%= t ".other" %></li>
+        <li>
+          <%= link_to("#") do %>
+          <i class="fa fa-book"></i> <span><%= t ".post" %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to("#") do %>
+          <i class="fa fa-book"></i> <span><%= t ".user" %></span>
+          <% end %>
+        </li>
+      </ul>
+    </section>
+  </aside>
