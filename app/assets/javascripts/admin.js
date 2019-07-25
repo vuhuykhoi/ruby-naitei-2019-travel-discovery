@@ -5,6 +5,6 @@
 //= require jquery.slimscroll.min
 //= require fastclick
 //= require bootstrap-sprockets
-//= require admin/jquery.min
-//= require admin/adminlte.min
-//= require admin/admin
+//= require admin/js/jquery.min
+//= require admin/js/adminlte.min
+//= require admin/js/admin

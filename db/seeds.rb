@@ -11,60 +11,76 @@ TypeTravelPlace.create(
   name: "Restaurants"
   )
 
-10.times do
-  TravelPlace.create(
-    name: Faker::Restaurant.name,
-    content: Faker::Restaurant.description,
-    address: Faker::Address.street_address,
-    type_travel_place_id: Faker::Number.between(0,3),
-    city_id: Faker::Number.between(1,10)
-    )
+cities = City.order(:created_at).take(2)
+type_travel_places = TypeTravelPlace.order(:created_at)
+cities.each do |city|
+  type_travel_places.each do |type_travel_place|
+    5.times do
+      TravelPlace.create! name: Faker::Restaurant.name,
+        content: Faker::Restaurant.description,
+        address: Faker::Address.street_address,
+        city_id: city.id,
+        type_travel_place_id: type_travel_place.id
+    end
+  end
+end
+
+travel_places = TravelPlace.order(:created_at)
+travel_places.each do |travel_place|
+  3.times do
+    TravelPlaceImage.create! link: Faker::LoremPixel.image,
+      travel_place_id: travel_place.id
+  end
 end
 
 User.create! username:  "admin",
-             email: "admin@gmail.com",
-             gender: "male",
-             date_of_birth: "1/1/2018",
-             password: "admin123",
-             password_confirmation: "admin123",
-             admin: true,
-             activated: true,
-             activated_at: Time.zone.now
+  email: "admin@gmail.com",
+  gender: "male",
+  date_of_birth: "1/1/2018",
+  password: "foobar",
+  password_confirmation: "foobar",
+  admin: true,
+  activated: true,
+  activated_at: Time.zone.now
 
 9.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
   User.create! username:  name,
-              email: email,
-              gender: Faker::Gender.binary_type,
-              date_of_birth: Faker::Date.between(50.years.ago, 10.years.ago),
-              password: password,
-              password_confirmation: password,
-              activated: true,
-              activated_at: Time.zone.now
+    email: email,
+    gender: Faker::Gender.binary_type,
+    date_of_birth: Faker::Date.between(50.years.ago, 10.years.ago),
+    password: password,
+    password_confirmation: password,
+    activated: true,
+    activated_at: Time.zone.now
 end
 
-10.times do
-  Post.create(
-    title: Faker::Lorem.sentence(3, true, 4),
-    content: Faker::Lorem.paragraph(2, false, 4),
-    vote_point: Faker::Number.between(1,5),
-    user_id: Faker::Number.between(2,9),
-    travel_place_id: Faker::Number.between(2,5)
-    )
+users = User.order(:created_at).take(4)
+travel_places = TravelPlace.order(:created_at).take(5)
+users.each do |user|
+  travel_places.each do |travel_place|
+    Post.create! title: Faker::Lorem.sentence(3, true, 4),
+      content: Faker::Lorem.paragraph(2, false, 4),
+      vote_point: Faker::Number.between(1,5),
+      user_id: user.id,
+      travel_place_id: travel_place.id
+  end
 end
 
-10.times do
-  TravelPlaceImage.create(
-    link: Faker::LoremPixel.image,
-    travel_place_id: Faker::Number.between(0,11)
-    )
+posts = Post.order(:created_at).take(3)
+posts.each do |post|
+  3.times do
+    PostImage.create! link: Faker::LoremPixel.image("350x283", true),
+      post_id: post.id
+  end
 end
 
-10.times do
-  PostImage.create(
-    link: Faker::LoremPixel.image,
-    post_id: Faker::Number.between(0,11)
-    )
+posts.each do |post|
+  users.each do |user|
+    Comment.create! content: Faker::Lorem.sentence,
+      user_id: user.id,
+      post_id: post.id
+  end
 end

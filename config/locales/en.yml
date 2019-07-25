@@ -18,3 +18,34 @@ en:
       search: "Search ..."
     footer:
       copyright: "Copyright &copy; 2014-2019"
+  layouts:
+    header:
+      travel: "Let's travel"
+      home: "Home"
+      place: "Place Travel"
+      hotel: "Hotel"
+      restaurent: "Restaurent"
+      blog: "Blog"
+      login: "Log in"
+      sign-up: "Sign Up"
+      contact: "Contact"
+      find-nearby: "Find Nearby "
+      what: "What are you looking for ?"
+      location: "Location"
+      all: "All Place"
+      hotels: "All Hotels"
+      restaurents: "Restaurents"
+      search: "Search"
+    footer:
+      travel: "Let's Travel"
+      free: "Free Template. All Rights Reserved."
+      design: "Design by Travel team"
+
+  static_pages:
+    home:
+      home: "Home"
+      hotels: "Hotels"
+      restaurents: "Restaurents"
+      other: "Other"
+      popular-places: "Popular Places"
+      popular-posts: "Popular Posts"
