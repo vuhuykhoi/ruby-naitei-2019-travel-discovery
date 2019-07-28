@@ -1,5 +1,9 @@
 en:
   title: "Travel Discovery"
+  page_title:
+    login: "Log in"
+    signup: "Sign up"
+    edit_user: "Edit Information"
   dashboard: "Dashboard"
   admin:
     header:
@@ -30,12 +34,9 @@ en:
       sign-up: "Sign Up"
       contact: "Contact"
       find-nearby: "Find Nearby "
-      what: "What are you looking for ?"
-      location: "Location"
       all: "All Place"
       hotels: "All Hotels"
       restaurents: "Restaurents"
-      search: "Search"
     footer:
       travel: "Let's Travel"
       free: "Free Template. All Rights Reserved."
@@ -49,3 +50,26 @@ en:
       other: "Other"
       popular-places: "Popular Places"
       popular-posts: "Popular Posts"
+
+  button:
+    create_account: "Sign Up"
+    login: "Log in"
+    save_change: "Save change"
+    search: "Search"
+
+  label:
+    signup: "Sign up"
+    email: "Email"
+    password: "Password"
+    login: "Log in"
+    what: "What are you looking for ?"
+    location: "Location"
+    new_user_ques: "New user ?"
+    remember_me: "Remember me"
+    user : "User"
+  flash:
+    danger:
+      invalid_user_infor: "You have entered an invalid username or password!"
+      user_not_found: "User not found"
+    success:
+      welcome_message: "Welcome to travel discovery"

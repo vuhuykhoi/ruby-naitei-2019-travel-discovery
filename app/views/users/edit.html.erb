@@ -1,0 +1,17 @@
+<% provide :title, t("page_title.edit_user") %>
+<% provide :button_text, t("button.save_change") %>
+<% provide :header_partial, "shared/header_partial/title" %>
+
+<div class="site-section bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <%= render "form" %>
+        <div class="gravatar_edit">
+            <%= gravatar_for @user %>
+            <%=link_to t(".change"), "http://gravatar.com/emails", target: "_blank" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
