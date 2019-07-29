@@ -11,7 +11,7 @@ TypeTravelPlace.create(
   name: "Restaurants"
 )
 
-cities = City.order(:created_at).take(2)
+cities = City.order(:created_at).take(Faker::Number.within(1..3))
 type_travel_places = TypeTravelPlace.order(:created_at)
 cities.each do |city|
   type_travel_places.each do |type_travel_place|
@@ -19,6 +19,7 @@ cities.each do |city|
       TravelPlace.create! name: Faker::Restaurant.name,
         content: Faker::Restaurant.description,
         address: Faker::Address.street_address,
+        rate: Faker::Number.between(1,5),
         city_id: city.id,
         type_travel_place_id: type_travel_place.id
     end
@@ -58,12 +59,13 @@ User.create! username:  "admin",
 end
 
 users = User.order(:created_at).take(4)
-travel_places = TravelPlace.order(:created_at).take(5)
+travel_places = TravelPlace.order(:created_at).take(Faker::Number.within(1..4))
 users.each do |user|
   travel_places.each do |travel_place|
     Post.create! title: Faker::Lorem.sentence(3, true, 4),
       content: Faker::Lorem.paragraph(2, false, 4),
       vote_point: Faker::Number.between(1,5),
+      view: Faker::Number.number(3),
       user_id: user.id,
       travel_place_id: travel_place.id
   end
@@ -77,7 +79,7 @@ end
         travel_place_id: Faker::Number.between(1,5)
 end
 
-posts = Post.order(:created_at).take(3)
+posts = Post.order(:created_at)
 posts.each do |post|
   3.times do
     PostImage.create! link: Faker::LoremPixel.image("350x283", true),
@@ -85,12 +87,20 @@ posts.each do |post|
   end
 end
 
+ReactionType.create(
+  description: "like"
+  )
 posts.each do |post|
-  users.each do |user|
-    Comment.create! content: Faker::Lorem.sentence,
-      user_id: user.id,
-      post_id: post.id
-  end
+  users = User.order(:created_at).take(Faker::Number.within(1..4))
+    users.each do |user|
+      Comment.create! content: Faker::Lorem.sentence,
+        user_id: user.id,
+        post_id: post.id
+
+      Reaction.create! reaction_type_id: 1,
+        user_id: user.id,
+        post_id: post.id
+    end
 end
 
 ReactionType.create(

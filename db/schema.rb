@@ -40,8 +40,9 @@ ActiveRecord::Schema.define(version: 2019_07_22_033417) do
     t.text "title"
     t.text "content"
     t.float "vote_point"
-    t.bigint "user_id"
-    t.bigint "travel_place_id"
+    t.integer "view"
+    t.integer "user_id"
+    t.integer "travel_place_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["travel_place_id"], name: "index_posts_on_travel_place_id"
@@ -88,8 +89,9 @@ ActiveRecord::Schema.define(version: 2019_07_22_033417) do
     t.string "name"
     t.text "content"
     t.string "address"
-    t.bigint "type_travel_place_id"
-    t.bigint "city_id"
+    t.float "rate"
+    t.integer "type_travel_place_id"
+    t.integer "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_travel_places_on_city_id"

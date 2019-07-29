@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.text :title
       t.text :content
       t.float :vote_point
+      t.integer :view
       t.references :user, foreign_key: true
       t.references :travel_place, foreign_key: true
 

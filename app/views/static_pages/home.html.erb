@@ -11,22 +11,22 @@
 
     <div class="row align-items-stretch">
       <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-4">
-        <a href="#" class="popular-category h-100">
+        <%= link_to "#", class: "popular-category h-100" do %>
           <span class="icon mb-3"><span class="flaticon-hotel"></span></span>
           <span class="caption mb-2 d-block"><%= t ".hotels" %></span>
-        </a>
+        <% end %>
       </div>
       <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-4">
-        <a href="#" class="popular-category h-100">
+        <%= link_to "#", class: "popular-category h-100" do %>
           <span class="icon mb-3"><span class="flaticon-cutlery"></span></span>
           <span class="caption mb-2 d-block"><%= t ".restaurants" %></span>
-        </a>
+        <% end %>
       </div>
       <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-4">
-        <a href="#" class="popular-category h-100">
+        <%= link_to "#", class: "popular-category h-100" do %>
           <span class="icon mb-3"><span class="flaticon-bike"></span></span>
           <span class="caption mb-2 d-block"><%= t ".other" %></span>
-        </a>
+        <% end %>
       </div>
     </div>
   </div>
@@ -41,6 +41,28 @@
     </div>
 
     <div class="row">
+
+      <% @travel_places.each  do |travel_place| %>
+        <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+          <div class="listing-item">
+            <div class="listing-image">
+              <% if travel_place.travel_place_images.first %>
+                <%= image_tag(travel_place.travel_place_images.first.link, class: "img-fluid") %>
+              <% end %>
+            </div>
+            <div class="listing-item-content">
+              <%= link_to "#", class: "bookmark", data:{toggle: "tooltip", placement: "left"} do %>
+                <span class="icon-heart"></span>
+              <% end %>
+              <%= link_to travel_place.type_travel_place.name, "#", class: "px-3 mb-3 category" %>
+              <h2 class="mb-1">
+                <%= link_to travel_place.name, "#" %>
+              </h2>
+              <span class="address"><%= travel_place.address %></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -53,6 +75,25 @@
       </div>
     </div>
     <div class="row mb-3 align-items-stretch">
+      <% @posts.each do |post| %>
+      <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+        <div class="h-entry">
+          <% if post.post_images.first %>
+            <%= image_tag(post.post_images.first.link, class: "img-fluid") %>
+          <% end %>
+          <div class="h-entry-inner">
+            <h2 class="font-size-regular">
+              <%= link_to truncate(post.title, length: 30), "#" %>
+            </h2>
+            <div class="meta mb-4"><%= t ".by" %>
+              <%= link_to post.user.username, "#" %>
+              <span class="mx-2">&bullet;</span>
+              <%= t time_ago_in_words(post.created_at) %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
