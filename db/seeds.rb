@@ -6,10 +6,10 @@ end
 
 TypeTravelPlace.create(
   name: "Hotels"
-  )
+)
 TypeTravelPlace.create(
   name: "Restaurants"
-  )
+)
 
 cities = City.order(:created_at).take(2)
 type_travel_places = TypeTravelPlace.order(:created_at)
@@ -69,6 +69,14 @@ users.each do |user|
   end
 end
 
+30.times do
+  Post.create! title: Faker::Lorem.sentence(3, true, 4),
+        content: Faker::Lorem.paragraph(2, false, 4),
+        vote_point: Faker::Number.between(1,5),
+        user_id: 1,
+        travel_place_id: Faker::Number.between(1,5)
+end
+
 posts = Post.order(:created_at).take(3)
 posts.each do |post|
   3.times do
@@ -80,6 +88,18 @@ end
 posts.each do |post|
   users.each do |user|
     Comment.create! content: Faker::Lorem.sentence,
+      user_id: user.id,
+      post_id: post.id
+  end
+end
+
+ReactionType.create(
+  description: "like"
+)
+
+posts.each do |post|
+  users.each do |user|
+    Reaction.create! reaction_type_id: 1,
       user_id: user.id,
       post_id: post.id
   end

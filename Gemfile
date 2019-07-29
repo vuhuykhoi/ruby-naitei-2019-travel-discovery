@@ -5,10 +5,12 @@ ruby "2.5.3"
 
 gem "bcrypt"
 gem "bootsnap", ">= 1.1.0", require: false
+gem "bootstrap4-kaminari-views"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "faker"
 gem "jbuilder", "~> 2.5"
+gem "kaminari"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.3"
 gem "sass-rails", "~> 5.0"
