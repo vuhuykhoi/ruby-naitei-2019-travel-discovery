@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   belongs_to :travel_place
 
   scope :create_desc, ->{order created_at: :desc}
+  scope :popular_posts, ->{order(rate: :desc).take Settings.popular_posts}
 
   validates :user_id, presence: true
   validates :travel_place_id, presence: true

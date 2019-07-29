@@ -13,9 +13,9 @@ user:
     female: "Female"
 remember_box:
   is_checked: "1"
-list_user:
-  num_user_per_page: "6"
 num_user_per_page: "6"
 num_feeds_per_page: "6"
 reaction_type:
   like: 1
+popular_places: 6
+popular_posts: 6

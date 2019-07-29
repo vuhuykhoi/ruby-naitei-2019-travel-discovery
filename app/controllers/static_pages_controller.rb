@@ -1,3 +1,6 @@
 class StaticPagesController < ApplicationController
-  def home; end
+  def home
+    @travel_places = TravelPlace.popular_places
+    @posts = Post.popular_posts
+  end
 end
