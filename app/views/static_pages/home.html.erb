@@ -11,21 +11,24 @@
 
     <div class="row align-items-stretch">
       <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-4">
-        <%= link_to "#", class: "popular-category h-100" do %>
+        <%= link_to place_hotel_path , class: "popular-category h-100" do %>
           <span class="icon mb-3"><span class="flaticon-hotel"></span></span>
           <span class="caption mb-2 d-block"><%= t ".hotels" %></span>
+          <span class="number"><%= @hotels.count %></span>
         <% end %>
       </div>
       <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-4">
-        <%= link_to "#", class: "popular-category h-100" do %>
+        <%= link_to place_food_path , class: "popular-category h-100" do %>
           <span class="icon mb-3"><span class="flaticon-cutlery"></span></span>
           <span class="caption mb-2 d-block"><%= t ".restaurants" %></span>
+          <span class="number"><%= @foods.count %></span>
         <% end %>
       </div>
       <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-4">
-        <%= link_to "#", class: "popular-category h-100" do %>
+        <%= link_to place_travel_path , class: "popular-category h-100" do %>
           <span class="icon mb-3"><span class="flaticon-bike"></span></span>
           <span class="caption mb-2 d-block"><%= t ".other" %></span>
+          <span class="number"><%= @travels.count %></span>
         <% end %>
       </div>
     </div>

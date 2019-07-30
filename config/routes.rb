@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get "detail/index"
+  get "place/hotel"
+  get "place/travel"
+  get "place/food"
+  get "search/index"
   root "static_pages#home"
   scope :admin do
     root "admin#index"
