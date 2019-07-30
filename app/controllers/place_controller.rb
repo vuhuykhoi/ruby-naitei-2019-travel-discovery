@@ -1,5 +1,4 @@
 class PlaceController < ApplicationController
-
   def hotel
     @hotels = TravelPlace.where("type_travel_place_id = 1")
   end
