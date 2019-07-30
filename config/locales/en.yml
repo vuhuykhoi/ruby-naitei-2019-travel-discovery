@@ -98,7 +98,12 @@ en:
       other: "Other"
       popular-places: "Popular Places"
       popular-posts: "Popular Posts"
-
+  
+  search:
+    index:
+      title: "Search"
+      not_found: "Not Found!"
+  
   button:
     create_account: "Sign Up"
     login: "Log in"

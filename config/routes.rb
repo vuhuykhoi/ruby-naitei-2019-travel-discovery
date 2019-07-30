@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "search/index"
   root "static_pages#home"
   scope :admin do
     root "admin#index"
