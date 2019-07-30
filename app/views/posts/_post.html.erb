@@ -1,4 +1,4 @@
-<div class="d-block d-md-flex listing-horizontal">
+<div class="card post-card">
   <li id="post-<%= post.id %>">
 
     <%= link_to gravatar_for(post.user, size: Settings.user.gravatar_post_size), post.user %>
@@ -7,12 +7,16 @@
     <span class="timestamp">
       <%= t("label.posted") %> <%= I18n.t(:time_ago,time: time_ago_in_words(post.created_at) )%>.
     </span>
+
     <span class="content">
 
-      <div class="card">
+      <div class="card address-card">
         <%= link_to "#" do %>
             <strong><%= post.travel_place_name %></strong>
-            <span class= "address"><%= post.travel_place_address %></span>
+            <span class= "address">
+              <i class = "icon icon-room"></i>
+              <%= post.travel_place_address %>
+              </span>
         <% end %>
       </div>
       <h5><%= post.title %></h5>
@@ -42,15 +46,35 @@
         </a>
       </div>
       <% end %>
+    </span>
 
-      <div>
-        <% num_of_likes = post.num_of_likes %>
-        <span class= "like"><%= I18n.t(:"label.like", count: num_of_likes)%></span>
+    <span class="reaction-amount">
+      <span class= "like">
+        <%= link_to reaction_path(post.id), remote: true do %>
+        <span id ="num_of_likes-<%= post.id %>">
+          <% num_of_likes = post.num_of_likes %>
+          <%= I18n.t(:"label.like", count: num_of_likes)%>
+        </span>
+        <% end %>
+      </span>
 
+      <span class= "comment">
+        <%= link_to "#" do %>
         <% num_of_comments = post.num_of_comments %>
-         <span class= "comment"><%= I18n.t(:"label.comment", count: num_of_comments)%></span>
-      </div>
-
+        <%= I18n.t(:"label.comment", count: num_of_comments)%>
+       </span>
+       <% end %>
     </span>
   </li>
+
+  <div class= "card-footer">
+  <%= render "like_form",post_id: post.id if logged_in? %>
+  </div>
+
+</div>
+
+<div id="reaction-users-modal-<%= post.id %>">
+</div>
+
+<div id="commented-users-modal-<%= post.id%>">
 </div>

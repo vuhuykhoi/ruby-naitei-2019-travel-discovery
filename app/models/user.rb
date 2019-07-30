@@ -38,6 +38,11 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
+
+    def liked_post_users reaction_type_id, post_id
+      joins(:reactions).where("reaction_type_id = ? and post_id = ?",
+        reaction_type_id, post_id)
+    end
   end
 
   def remember
@@ -64,6 +69,10 @@ class User < ApplicationRecord
 
   def following? other_user
     following.include? other_user
+  end
+
+  def having_reaction?user_id, post_id
+    reactions.find_by user_id: user_id, post_id: post_id
   end
 
   private
