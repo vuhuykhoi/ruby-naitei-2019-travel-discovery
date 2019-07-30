@@ -30,13 +30,18 @@
                 <% end %>
                 <ul class="dropdown arrow-top">
                   <li>
-                    <%= link_to "#" do %>
+                    <%= link_to place_hotel_path do %>
                       <span><%= t ".hotel" %></span>
                     <% end %>
                   </li>
                   <li>
-                    <%= link_to "#" do %>
-                      <span><%= t ".hotel" %></span>
+                    <%= link_to place_travel_path do %>
+                      <span><%= t ".travel_header" %></span>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to place_food_path do %>
+                      <span><%= t ".food" %></span>
                     <% end %>
                   </li>
                 </ul>

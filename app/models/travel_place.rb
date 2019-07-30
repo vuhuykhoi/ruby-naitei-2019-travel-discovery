@@ -5,5 +5,4 @@ class TravelPlace < ApplicationRecord
   has_many :travel_place_images, dependent: :destroy
 
   scope :popular_places, ->{order(rate: :desc).take Settings.popular_places}
-
 end

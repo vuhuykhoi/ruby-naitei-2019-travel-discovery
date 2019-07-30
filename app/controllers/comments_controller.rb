@@ -5,8 +5,8 @@ class CommentsController < ApplicationController
     @post_id = params[:id]
     @list_post_comments = Comment.create_desc.where "post_id = ?", params[:id]
     respond_to do |format|
-        format.html
-        format.js
+      format.html
+      format.js
     end
   end
 

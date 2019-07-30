@@ -74,7 +74,7 @@ en:
       travel: "Let's travel"
       home: "Home"
       place: "Place Travel"
-      hotel: "Hotel"
+      hotel: "Hotels"
       restaurent: "Restaurent"
       blog: "Blog"
       login: "Log in"
@@ -84,19 +84,35 @@ en:
       all: "All Place"
       hotels: "All Hotels"
       restaurents: "Restaurents"
+      travel_header: "Travels"
+      food: "Foods"
     footer:
       travel: "Let's Travel"
-      free: "Free Template. All Rights Reserved."
+      free: " Free Template. All Rights Reserved."
       design: "Design by Travel team"
 
   static_pages:
     home:
       home: "Home"
       hotels: "Hotels"
-      restaurents: "Restaurents"
-      other: "Other"
+      restaurents: "Foods"
+      other: "Travels"
       popular-places: "Popular Places"
       popular-posts: "Popular Posts"
+  
+  place:
+    food:
+      title: "Foods"
+    hotel:
+      title: "Hotels"
+    travel:
+      title: "Travels"
+  search:
+    index:
+      title: "Search"
+  detail:
+    index:
+      title: "Detail"
 
   button:
     create_account: "Sign Up"

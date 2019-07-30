@@ -4,10 +4,8 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build post_params
-    if @post.save
-      flash[:success] = t "flash.success.micropost_created"
-    end
-      redirect_to current_user
+    flash[:success] = t "flash.success.micropost_created" if @post.save
+    redirect_to current_user
   end
 
   def destroy

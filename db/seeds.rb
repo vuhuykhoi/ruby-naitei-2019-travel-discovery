@@ -8,7 +8,7 @@ TypeTravelPlace.create(
   name: "Hotels"
 )
 TypeTravelPlace.create(
-  name: "Travel"
+  name: "Travels"
 )
 TypeTravelPlace.create(
   name: "Foods"
