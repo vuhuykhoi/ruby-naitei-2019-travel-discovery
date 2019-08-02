@@ -49,7 +49,7 @@
               <% if logged_in? %>
                 <li class="has-children">
                   <%= link_to "#" do%>
-                    <span><%= t "label.user" %></span>
+                    <span><%= current_user.username %></span>
                   <% end %>
                   <ul class="dropdown arrow-top">
                     <li>

@@ -1,58 +1,59 @@
 <%= form_for @user, :html => {class: "p-5 bg-white", style: "margin-top: -150px;"}  do |f| %>
 <%= render "shared/error_messages", object: f.object %>
-  <div class="row form-group">
-    <div class="col-md-12">
-      <%= f.label :username, class: "text-black" %>
-      <%= f.text_field :username, class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="row form-group">
-    <div class="col-md-12">
-      <%= f.label :email, class: "text-black" %>
-      <%= f.email_field :email, class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="row form-group">
-    <div class="col-md-12">
-      <%= f.label :date_of_birth, class: "text-black" %>
-      <div>
-        <%= f.date_select :date_of_birth, {order: [:day,:month, :year],
-        prompt: { day: 'Select day', month: 'Select month', year: 'Select year' },
-         start_year: Date.today.year - 18, end_year: Date.today.year - 100} %>
+  <div class="row">
+    <% if logged_in? %>
+      <div class="col-md-4">
+        <div class="gravatar_edit">
+          <%= gravatar_for @user %>
+          <span class="btn btn-default btn-file">
+            <%= f.file_field :avatar, id: "avatar-upload" %>
+          </span>
+          <%= f.hidden_field :avatar_cache %>
+        </div>
       </div>
-    </div>
-  </div>
-
-
-  <div class="row form-group">
-    <div class="col-md-12">
-      <%= f.label :gender, class: "text-black" %>
-      <div>
-        <%= f.radio_button :gender, Settings.user.gender.male %><span class="option"> Male<span>
-        <%= f.radio_button :gender, Settings.user.gender.female %><span class="option"> Female<span>
+    <% end %>
+    <div>
+      <div class="form-group">
+        <%= f.label :username, class: "text-black" %>
+        <%= f.text_field :username, class: "form-control" %>
       </div>
-    </div>
-  </div>
 
-  <div class="row form-group">
-    <div class="col-md-12">
-      <%= f.label :password, class: "text-black" %>
-      <%= f.password_field :password, class: "form-control" %>
-    </div>
-  </div>
+      <div class="form-group">
+        <%= f.label :email, class: "text-black" %>
+        <%= f.email_field :email, class: "form-control" %>
+      </div>
 
-  <div class="row form-group">
-    <div class="col-md-12">
-      <%= f.label :password_confirmation, class: "text-black" %>
-      <%= f.password_field :password_confirmation, class: "form-control" %>
-    </div>
-  </div>
+      <div class="form-group">
+        <%= f.label :date_of_birth, class: "text-black" %>
+        <div>
+          <%= f.date_select :date_of_birth, {order: [:day,:month, :year],
+          prompt: { day: 'Select day', month: 'Select month', year: 'Select year' },
+           start_year: Date.today.year - 18, end_year: Date.today.year - 100} %>
+        </div>
+      </div>
 
-  <div class="row form-group">
-    <div class="col-md-12">
-      <%= f.submit yield(:button_text), class: "btn btn-primary btn-md text-white" %>
+
+      <div class="form-group">
+        <%= f.label :gender, class: "text-black" %>
+        <div>
+          <%= f.radio_button :gender, Settings.user.gender.male %><span class="option"> Male<span>
+          <%= f.radio_button :gender, Settings.user.gender.female %><span class="option"> Female<span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, class: "text-black" %>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation, class: "text-black" %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit yield(:button_text), class: "btn btn-primary btn-md text-white" %>
+      </div>
     </div>
   </div>
 <% end %>
