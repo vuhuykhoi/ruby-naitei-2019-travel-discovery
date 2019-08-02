@@ -197,3 +197,38 @@ aside {
     padding-right: 10px;
   }
 }
+
+.list_post{
+  width: 700px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*Auto complete*/
+
+ul.ui-autocomplete {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 2px solid #FFF;
+  li {
+    background-color: #FFF;
+    border: 2px solid #FFF;
+    margin: 0;
+    padding: 0;
+    a {
+      color: $gray-medium-light;
+      display: block;
+      padding: 3px;
+    }
+    a.ui-state-hover, a.ui-state-active {
+      background-color: $white-smoke;
+    }
+  }
+}

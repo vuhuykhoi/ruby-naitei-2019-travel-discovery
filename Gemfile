@@ -49,5 +49,6 @@ gem "ionicons-rails"
 gem "jquery"
 gem "jquery-rails"
 gem "jquery-slimscroll-rails"
+gem "jquery-ui-rails"
 gem "rails-i18n"
 gem "rubocop", "~> 0.54.0", require: false
