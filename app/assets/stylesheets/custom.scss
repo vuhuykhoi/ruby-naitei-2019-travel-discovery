@@ -232,3 +232,10 @@ ul.ui-autocomplete {
     }
   }
 }
+.site-blocks-cover.overlay {
+  overflow: hidden;
+}
+.site-blocks-cover, .site-blocks-cover > .container > .row {
+  min-height: 400px !important;
+  height: calc(50vh) !important;
+}
