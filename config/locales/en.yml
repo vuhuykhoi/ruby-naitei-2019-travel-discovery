@@ -76,8 +76,8 @@ en:
       travel: "Let's travel"
       home: "Home"
       place: "Place Travel"
-      hotel: "Hotel"
-      restaurent: "Restaurent"
+      hotel: "Hotels"
+      restaurent: "Foods"
       blog: "Blog"
       login: "Log in"
       sign-up: "Sign Up"
@@ -85,24 +85,38 @@ en:
       find-nearby: "Find Nearby "
       all: "All Place"
       hotels: "All Hotels"
-      restaurents: "Restaurents"
+      restaurents: "Foods"
+      travel_header: "Travels"
+      food: "Foods"
     footer:
       travel: "Let's Travel"
-      free: "Free Template. All Rights Reserved."
+      free: " Free Template. All Rights Reserved."
       design: "Design by Travel team"
 
   static_pages:
     home:
       home: "Home"
       hotels: "Hotels"
-      restaurents: "Restaurents"
-      other: "Other"
+      restaurents: "Foods"
+      other: "Travels"
       popular-places: "Popular Places"
       popular-posts: "Popular Posts"
   search:
     index:
       title: "Search"
       not_found: "Not Found!"
+  
+  travel_places:
+    list_place:
+      title: "List Place"
+      not_found: "Not Found"
+  detail:
+    index:
+      title: "Detail"
+      review_place: "Review Place"
+      place_review: "Place Review"
+      more: "More Listing"
+
   button:
     create_account: "Sign Up"
     login: "Log in"

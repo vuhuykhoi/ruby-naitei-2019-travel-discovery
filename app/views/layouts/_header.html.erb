@@ -29,16 +29,13 @@
                   <span><%= t ".place" %></span>
                 <% end %>
                 <ul class="dropdown arrow-top">
-                  <li>
-                    <%= link_to "#" do %>
-                      <span><%= t ".hotel" %></span>
-                    <% end %>
-                  </li>
-                  <li>
-                    <%= link_to "#" do %>
-                      <span><%= t ".hotel" %></span>
-                    <% end %>
-                  </li>
+                  <% @travel_place_types.each do |type| %>
+                    <li>
+                      <%= link_to travel_places_list_place_path(id: type[0]) do %>
+                        <span><%= type[1] %></span>
+                      <% end %>
+                    </li>
+                  <% end %>
                 </ul>
               </li>
               <% if user_signed_in? %>

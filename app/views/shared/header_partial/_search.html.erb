@@ -4,7 +4,7 @@
       <div class="col-md-10">
         <div class="row justify-content-center mb-4">
           <div class="col-md-10 text-center">
-            <h1 ><%= t ".find-nearby" %><span class="typed-words"></span></h1>
+            <h1><%= t ".find-nearby" %><span class="typed-words"></span></h1>
           </div>
         </div>
         <div class="form-search-wrap p-2" >
@@ -23,7 +23,7 @@
                 <div class="select-wrap">
                   <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
                   <div class="form-control">
-                    <%= select_tag :type, options_for_select(@travel_place_types.collect{ |type| [type.name, type.id] }, params[:type]), {:style => "border: 0"}%>
+                    <%= select_tag :type, options_for_select(@travel_place_types, params[:type]), {style: "border: 0"}%>
                   </div>
                 </div>
               </div>

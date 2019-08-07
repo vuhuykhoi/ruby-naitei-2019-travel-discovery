@@ -11,21 +11,24 @@
 
     <div class="row align-items-stretch">
       <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-4">
-        <%= link_to "#", class: "popular-category h-100" do %>
+        <%= link_to travel_places_list_place_path(id: 1) , class: "popular-category h-100" do %>
           <span class="icon mb-3"><span class="flaticon-hotel"></span></span>
           <span class="caption mb-2 d-block"><%= t ".hotels" %></span>
+          <span class="number"><%= @hotels.count %></span>
         <% end %>
       </div>
       <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-4">
-        <%= link_to "#", class: "popular-category h-100" do %>
+        <%= link_to travel_places_list_place_path(id: 3) , class: "popular-category h-100" do %>
           <span class="icon mb-3"><span class="flaticon-cutlery"></span></span>
-          <span class="caption mb-2 d-block"><%= t ".restaurants" %></span>
+          <span class="caption mb-2 d-block"><%= t ".restaurents" %></span>
+          <span class="number"><%= @foods.count %></span>
         <% end %>
       </div>
       <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-4">
-        <%= link_to "#", class: "popular-category h-100" do %>
+        <%= link_to travel_places_list_place_path(id: 2) , class: "popular-category h-100" do %>
           <span class="icon mb-3"><span class="flaticon-bike"></span></span>
           <span class="caption mb-2 d-block"><%= t ".other" %></span>
+          <span class="number"><%= @travels.count %></span>
         <% end %>
       </div>
     </div>
@@ -54,9 +57,9 @@
               <%= link_to "#", class: "bookmark", data:{toggle: "tooltip", placement: "left"} do %>
                 <span class="icon-heart"></span>
               <% end %>
-              <%= link_to travel_place.type_travel_place.name, "#", class: "px-3 mb-3 category" %>
+              <%= link_to travel_place.type_travel_place.name, detail_index_path(name: travel_place.name), class: "px-3 mb-3 category" %>
               <h2 class="mb-1">
-                <%= link_to travel_place.name, "#" %>
+                <%= link_to travel_place.name, detail_index_path(name: travel_place.name) %>
               </h2>
               <span class="address"><%= travel_place.address %></span>
             </div>
@@ -83,7 +86,7 @@
           <% end %>
           <div class="h-entry-inner">
             <h2 class="font-size-regular">
-              <%= link_to truncate(post.title, length: 20), "#" %>
+              <%= link_to truncate(post.title, length: 20), posts_show_path(id: post.id) %>
             </h2>
             <div class="meta mb-4"><%= t ".by" %>
               <%= link_to post.user.username, user_path(post.user) %>

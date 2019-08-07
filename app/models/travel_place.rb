@@ -10,9 +10,11 @@ class TravelPlace < ApplicationRecord
 
   scope :get_places, ->(name, address, type){where(name: name) | where(address: address) | where(type_travel_place_id: type)}
   scope :search_by_name, ->(name){where "name like ?", name}
+  scope :get_type, ->(type){where "type_travel_place_id like ?", type}
 
   validates :name, presence: true
   validates :city_id, presence: true
 
   delegate :name, to: :city, prefix: :city, allow_nil: true
+  delegate :name, to: :type_travel_place, prefix: :type_travel_place
 end

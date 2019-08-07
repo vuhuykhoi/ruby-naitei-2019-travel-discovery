@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => :registrations, :omniauth_callbacks => "users/omniauth_callbacks" }
   post "/rate" => "rater#create", :as => "rate"
   notify_to :users
+  get "detail/index"
+  get "travel_places/list_place"
   get "search/index"
+  get "posts/show"
   root "static_pages#home"
   scope :admin do
     root "admin#index"

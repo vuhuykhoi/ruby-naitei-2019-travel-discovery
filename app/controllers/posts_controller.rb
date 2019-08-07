@@ -13,6 +13,11 @@ class PostsController < ApplicationController
     redirect_to current_user
   end
 
+  def show
+    @post = Post.find_by id: params[:id]
+    redirect_to root_url if @post.nil?
+  end
+
   def destroy
     @post_id = @post.id
     respond_to do |format|
