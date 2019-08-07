@@ -41,12 +41,12 @@
                   </li>
                 </ul>
               </li>
-              <li>
-                <%= link_to "#" do %>
-                  <span><%= t ".blog" %></span>
-                <% end %>
-              </li>
               <% if logged_in? %>
+                <li>
+                  <%= link_to newfeed_user_path(current_user) do %>
+                    <span><%= t ".blog" %></span>
+                  <% end %>
+                </li>
                 <li class="has-children">
                   <%= link_to "#" do%>
                     <span><%= current_user.username %></span>

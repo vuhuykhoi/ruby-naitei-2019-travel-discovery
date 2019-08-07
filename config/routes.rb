@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get "search/index"
   root "static_pages#home"
+
   scope :admin do
     root "admin#index"
   end
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :newfeed
     end
   end
   resources :relationships, only: %i(create destroy)

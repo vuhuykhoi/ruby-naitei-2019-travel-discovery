@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:session][:password])
       log_in user
       check_remember_box user
-      redirect_back_or user
+      redirect_back_or newfeed_user_path(user)
     else
       respond_to do |format|
         format.html{render :new}
