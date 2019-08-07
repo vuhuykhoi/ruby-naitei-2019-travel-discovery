@@ -10,6 +10,7 @@
 /node_modules
 /yarn-error.log
 /public/assets
+/public/uploads
 .byebug_history
 /config/master.key
 /test/*
@@ -18,3 +19,4 @@
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+config/cloudinary.yml

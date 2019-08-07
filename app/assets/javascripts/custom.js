@@ -1,6 +1,6 @@
 $(function() {
-  return $('#what').autocomplete({
-    source: $('#what').data('autocomplete-source')
+  return $('#search_place_name').autocomplete({
+    source: $('#search_place_name').data('autocomplete-source')
   });
 });
 
@@ -28,3 +28,75 @@ $(function() {
   });
 });
 
+$(function() {
+  return $('#city_name').autocomplete({
+    source: $('#city_name').data('autocomplete-source')
+  });
+});
+
+$(function() {
+  var firstProp = [];
+  $('#city_name').on("change",function(){
+    $.ajax({
+        dataType: "json",
+        type: 'GET',
+        url: '/travel_places',
+        success: function( data ) {
+
+          for (var i = 0;i<data.length;i++ ){
+            if(data[i]["city_name"] == $('#city_name').val()){
+              firstProp.push(data[i])
+            }
+          }
+          console.log(firstProp);
+          return $('#post_travel_place_name').autocomplete({
+            source: firstProp,
+            select: function(event,ui){
+              $("#travel_place_id").val(ui.item["id"]);
+            }
+          });
+        }
+    });
+  });
+});
+
+$.ui.autocomplete.prototype._renderItem = function (ul, item) {
+        var newText = String(item.value).replace(
+                new RegExp(this.term, "gi"),
+                "<span class='ui-state-highlight'>$&</span>");
+
+        return $("<li></li>")
+            .data("item.autocomplete", item)
+            .append("<div>" + newText + "</div>")
+            .appendTo(ul);
+};
+
+/*Preview Image*/
+$(function(){
+  $(".upload-image").on("change", function(){
+    var preview = document.querySelector('#preview');
+    var files   = document.querySelector('input[type=file]').files;
+
+    function readAndPreview(file) {
+
+      if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
+        var reader = new FileReader();
+
+        reader.addEventListener("load", function () {
+          var image = new Image();
+          image.height = 100;
+          image.width = 100;
+          image.title = file.name;
+          image.src = this.result;
+          preview.appendChild( image );
+        }, false);
+
+        reader.readAsDataURL(file);
+      }
+
+    }
+    if (files) {
+      [].forEach.call(files, readAndPreview);
+    }
+  })
+})

@@ -5,6 +5,9 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :travel_place
 
+  accepts_nested_attributes_for :post_images, allow_destroy: true,
+    reject_if: proc{|attributes| attributes["image"].blank?}
+
   scope :create_desc, ->{order created_at: :desc}
   scope :popular_posts, ->{order(view: :desc).take Settings.popular_posts}
 
