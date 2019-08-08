@@ -28,6 +28,14 @@ class UsersController < ApplicationController
     redirect_to(root_url) && return unless @user
   end
 
+  def newfeed
+    return unless logged_in?
+    @posts = current_user.posts.build
+    @feed_items = current_user.feed.create_desc.page(
+      params[:page]
+    ).per Settings.num_feeds_per_page
+  end
+
   def edit; end
 
   def update
