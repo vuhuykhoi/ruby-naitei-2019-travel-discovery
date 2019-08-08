@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, PictureUploader
 
   validates :username, presence: true,
   length: {maximum: Settings.user.validates.max_name_length}

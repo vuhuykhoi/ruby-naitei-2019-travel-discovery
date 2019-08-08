@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hedspi
+  api_key: '684517335499543'
+  api_secret: "-_02_OINbJVVe1ZBHt0-BRY-Zk8"
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: hedspi
+  api_key: '684517335499543'
+  api_secret: "-_02_OINbJVVe1ZBHt0-BRY-Zk8"
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: hedspi
+  api_key: '684517335499543'
+  api_secret: "-_02_OINbJVVe1ZBHt0-BRY-Zk8"
+  enhance_image_tag: true
+  static_file_support: false

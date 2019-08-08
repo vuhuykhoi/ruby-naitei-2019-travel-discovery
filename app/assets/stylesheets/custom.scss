@@ -117,7 +117,6 @@ aside {
   list-style: none;
   padding: 0;
   li {
-    padding: 10px 0;
     border-top: 1px solid $whisper;
   }
   .user {
@@ -227,7 +226,6 @@ span.picture {
 }
 
 /*Auto complete*/
-
 ul.ui-autocomplete {
   position: absolute;
   list-style: none;
