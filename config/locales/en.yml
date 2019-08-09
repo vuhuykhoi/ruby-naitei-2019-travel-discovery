@@ -52,6 +52,7 @@ en:
     signup: "Sign up"
     edit_user: "Edit Information"
     newfeed: "New Feed"
+    sign-in-fb: "Sign in with Facebook"
   dashboard: "Dashboard"
   admin:
     header:

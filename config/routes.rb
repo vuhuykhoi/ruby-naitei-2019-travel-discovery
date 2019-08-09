@@ -1,16 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => { :registrations => :registrations, :omniauth_callbacks => "users/omniauth_callbacks" }
   get "search/index"
   root "static_pages#home"
 
   scope :admin do
     root "admin#index"
   end
-
-  get "signup", to: "users#new"
-  post "signup", to: "users#create"
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
   resources :users do
     member do
       get :following, :followers, :newfeed

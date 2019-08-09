@@ -86,6 +86,27 @@ users.each do |user|
     end
 end
 
+#Following/Followers
+users = User.all
+user  = users.first
+following = users[2..5]
+followers = users[3..9]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
+
+#New feed
+users = User.first.following.take(2)
+users.each do |user|
+  2.times do
+    Post.create! title: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4),
+                 content: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
+                 vote_point: Faker::Number.between(from: 1,to: 5),
+                 view: Faker::Number.between(from: 1,to: 20),
+                 user_id: user.id,
+                 travel_place_id: Faker::Number.between(from: 1,to: 30)
+  end
+end
+
 posts = Post.all
 posts.each do |post|
    case post.travel_place.type_travel_place_id
@@ -131,10 +152,3 @@ posts.each do |post|
       post_id: post.id
   end
 end
-
-users = User.all
-user  = users.first
-following = users[2..5]
-followers = users[3..9]
-following.each { |followed| user.follow(followed) }
-followers.each { |follower| follower.follow(user) }
