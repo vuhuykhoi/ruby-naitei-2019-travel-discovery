@@ -26,13 +26,4 @@ class Post < ApplicationRecord
   def num_of_comments
     comments.count
   end
-
-  def travel_place_name
-    travel_place.try(:name)
-  end
-
-  def travel_place_name=name
-    return unless name.present?
-    self.travel_place = TravelPlace.find_or_create_by(name: name)
-  end
 end

@@ -2,13 +2,13 @@
 <% provide :header_partial, "shared/header_partial/title" %>
 
 <div class="site-section bg-light">
+
   <div class="container">
     <div class="row">
 
       <div class="col-md-6 offset-md-3">
-        <%= form_for :session, url: login_path,
-        :html => {class: "p-5 bg-white",style: "margin-top: -150px;"},remote: true  do |f| %>
-          <div class= "alert"></div>
+        <%= form_for resource, as: resource_name, url: session_path(resource_name),
+        :html => {class: "p-5 bg-white",style: "margin-top: -150px;"} do |f| %>
           <div class="row form-group">
             <div class="col-md-12">
               <%= f.label t("label.email"), class: "text-black" %>
@@ -23,6 +23,7 @@
             </div>
           </div>
 
+           <% if devise_mapping.rememberable? %>
           <div class="row form-group">
             <div class="col-md-12">
               <%= f.label :remember_me, class: "checkbox inline" do %>
@@ -31,6 +32,7 @@
               <% end %>
             </div>
           </div>
+            <% end %>
 
           <div class="row form-group">
             <div class="col-md-12">
@@ -39,7 +41,6 @@
           </div>
 
         <% end %>
-        <p> <%= t("label.new_user_ques") %><%= link_to t("label.signup"), signup_path %></p>
       </div>
     </div>
   </div>
