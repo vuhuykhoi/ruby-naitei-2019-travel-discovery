@@ -21,3 +21,6 @@ config/settings/*.local.yml
 config/environments/*.local.yml
 config/cloudinary.yml
 public/uploads/*
+
+# Ignore application configuration
+/config/application.yml

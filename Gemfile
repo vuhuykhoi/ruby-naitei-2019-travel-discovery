@@ -57,5 +57,6 @@ gem "jquery-rails"
 gem "jquery-slimscroll-rails"
 gem "jquery-ui-rails"
 gem "mini_magick"
+gem "omniauth-facebook"
 gem "rails-i18n"
 gem "rubocop", "~> 0.54.0", require: false

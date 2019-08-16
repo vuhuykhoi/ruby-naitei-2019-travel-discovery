@@ -4,10 +4,11 @@ module UsersHelper
     height = options[:size]
     avatar_url = if user.avatar?
                    user.avatar.url
+                 elsif user.image?
+                   user.image
                  else
                    Settings.default_avatar
                  end
-
     image_tag avatar_url,
       alt: user.username,
       class: "gravatar rounded-circle hidden",
