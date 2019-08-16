@@ -5,5 +5,7 @@
 //= require rails-ujs
 //= require jquery.raty
 //= require ratyrate
+//= require i18n.js
+//= require i18n/translations
 //= require activestorage
 //= require turbolinks
