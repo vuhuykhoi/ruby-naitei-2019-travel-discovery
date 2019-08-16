@@ -1,4 +1,6 @@
 class TravelPlace < ApplicationRecord
+  ratyrate_rateable "quality"
+
   belongs_to :type_travel_place
   belongs_to :city
 

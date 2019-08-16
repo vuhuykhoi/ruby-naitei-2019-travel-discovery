@@ -18,12 +18,16 @@
             <span class= "address">
               <i class = "icon icon-room"></i>
               <%= post.travel_place_address %>
-              </span>
+            </span>
         <% end %>
+        <span>
+          <%= post.travel_place.average("quality").avg if post.travel_place.average("quality") %>
+          <%= I18n.t(:"label.rater", count: post.travel_place.rates("quality").count) %>
+          <%= rating_for post.travel_place, "quality", avg: true,readonly: true, enable_half: true %>
+        </span>
       </div>
       <h5><%= post.title %></h5>
       <p><%= post.content %></p>
-      <%= post.vote_point %>
       <% if !post.post_images.empty? %>
       <div id="imagesAlbum-<%= post.id %>" class="carousel slide " data-ride="carousel" data-interval="false">
         <ol class="carousel-indicators">
