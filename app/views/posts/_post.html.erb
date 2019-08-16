@@ -25,7 +25,7 @@
         </span>
       </div>
       <h5><%= post.title %></h5>
-      <p><%= post.content %></p>
+      <p><%= sanitize(post.content) %></p>
       <% if !post.post_images.empty? %>
         <div id="imagesAlbum-<%= post.id %>" class="carousel slide " data-ride="carousel" data-interval="false">
           <ol class="carousel-indicators">
