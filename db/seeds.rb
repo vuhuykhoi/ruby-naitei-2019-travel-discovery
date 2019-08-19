@@ -56,9 +56,7 @@ User.create! username:  "admin",
   date_of_birth: "1/1/2018",
   password: "foobar",
   password_confirmation: "foobar",
-  admin: true,
-  activated: true,
-  activated_at: Time.zone.now
+  admin: true
 
 10.times do |n|
   name  = Faker::Name.name
@@ -69,9 +67,7 @@ User.create! username:  "admin",
     gender: Faker::Gender.binary_type,
     date_of_birth: Faker::Date.between(from: 50.years.ago,to: 10.years.ago),
     password: password,
-    password_confirmation: password,
-    activated: true,
-    activated_at: Time.zone.now
+    password_confirmation: password
 end
 
 users = User.order(:id).take(2)
