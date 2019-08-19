@@ -16,6 +16,7 @@ class ReactionsController < ApplicationController
     @reaction = Reaction.create reaction_type_id: params[:reaction_type_id],
                                 user_id: params[:user_id],
                                 post_id: params[:post_id]
+    Notifications::ReactionReplyService.new(@reaction).perform
     @post_id = params[:post_id]
 
     respond_to do |format|

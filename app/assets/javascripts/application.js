@@ -7,5 +7,6 @@
 //= require ratyrate
 //= require i18n.js
 //= require i18n/translations
+//= require cable
 //= require activestorage
 //= require turbolinks

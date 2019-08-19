@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   has_many :post_images, dependent: :destroy
   has_many :reactions, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :commented_users, through: :comments, source: :user
+
   belongs_to :user
   belongs_to :travel_place
 
