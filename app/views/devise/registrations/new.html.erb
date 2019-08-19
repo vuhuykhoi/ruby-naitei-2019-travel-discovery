@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <%= form_for resource, as: resource_name, url: registration_path(resource_name),  :html => {class: "p-5 bg-white", style: "margin-top: -150px;"} do |f| %>
+        <%= form_for resource, as: resource_name, url: registration_path(resource_name),html: {class: "p-5 bg-white", style: "margin-top: -150px;"} do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
           <div class="row form-group">
             <div class="col-md-12">
