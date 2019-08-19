@@ -11,9 +11,11 @@ class Comment < ApplicationRecord
 
   acts_as_notifiable :users,
     targets: ->(comment, _key){([comment.post.user] + comment.post.commented_users.to_a - [comment.user]).uniq},
-    notifiable_path: :post_notifiable_path
+    notifiable_path: :post_notificable_path
 
-  def post_notifiable_path
-    post_path(post)
+  private
+
+  def post_notificable_path
+    posts_show_path id: post.id
   end
 end

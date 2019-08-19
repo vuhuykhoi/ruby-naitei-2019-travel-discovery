@@ -8,7 +8,7 @@
 
       <div class="col-md-6 offset-md-3">
         <%= form_for resource, as: resource_name, url: session_path(resource_name),
-        :html => {class: "p-5 bg-white",style: "margin-top: -150px;"} do |f| %>
+        html: {class: "p-5 bg-white",style: "margin-top: -150px;"} do |f| %>
           <div class="row form-group">
             <div class="col-md-12">
               <%= f.label t("label.email"), class: "text-black" %>
@@ -39,7 +39,10 @@
               <%= f.submit t("button.login"), class: "btn btn-primary btn-md text-white" %>
             </div>
           </div>
-          <%= link_to t("page_title.sign-in-fb"), user_facebook_omniauth_authorize_path %>
+          <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-primary btn-md text-white" do %>
+            <i class="fab fa-facebook-square fa-lg"></i>
+            <%= t("page_title.sign-in-fb") %>
+          <% end %>
         <% end %>
       </div>
     </div>

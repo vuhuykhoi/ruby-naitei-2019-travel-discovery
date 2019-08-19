@@ -131,6 +131,7 @@ aside {
       width:640px;
       height:420px;
     }
+    margin-bottom: 10px;
   }
   .reaction-amount{
     display: block;
@@ -140,14 +141,11 @@ aside {
       color: $gray-light;
       display: block inline;
       font-size: medium;
-      float: left;
-
     }
     .like {
       color: $gray-light;
       display: block inline;
       font-size: medium;
-      float: left;
     }
   }
   .timestamp {
@@ -156,7 +154,6 @@ aside {
     margin-left: 60px;
     font-size: small;
   }
-
   .gravatar {
     float: left;
     margin-right: 10px;
@@ -225,6 +222,18 @@ span.picture {
   }
 }
 
+textarea{
+  width:100%;
+  height:100%;
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
+
 /*Auto complete*/
 ul.ui-autocomplete {
   position: absolute;
@@ -269,4 +278,128 @@ ul.ui-autocomplete {
 .err-msg{
   font-style: italic;
   color: red;
+}
+.image_detail{
+  display: block;
+  margin: auto;
+  width: 700px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.text_center{
+  text-align: center;
+}
+
+.text_content{
+  text-align: justify;
+}
+
+.box_center{
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 15%;
+  text-align: center;
+  opacity: 0.5;
+  margin: 20px;
+}
+
+.box{
+  margin: auto;
+  width: 80%;
+}
+
+.post{
+  height: 200px;
+  border: 1px solid $gray-medium-light;
+}
+
+.user_box{
+  background-color: $gray-medium-light;
+  text-align: center;
+  width: 20%;
+}
+
+.content_box{
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 70%;
+}
+
+.detail{
+  height: 500px;
+}
+
+.content{
+  height: 80%;
+}
+
+.button_bottom{
+  position: absolute;
+  bottom: 0;
+}
+.img-thumb{
+  display: block;
+  height: 30px;
+  width: 100%;
+  object-fit: cover;
+  margin: auto;
+}
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  margin: auto;
+  list-style: none;
+  width: 100%;
+}
+.thumb{
+  margin: auto;
+}
+
+.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+.gallery:hover {
+  border: 1px solid #777;
+}
+
+.gallery img {
+  width: 100%;
+  height: 150px;
+}
+
+.card-width{
+  width: 50%;
+  padding: 5px;
+}
+
+.picture{
+  height: 150px;
+  width: 200px;
+}
+
+.list-notifications-bg{
+  background-color: white;
 }

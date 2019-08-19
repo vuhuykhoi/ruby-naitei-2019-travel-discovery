@@ -19,7 +19,7 @@
         <div class="col-12 col-md-10 d-none d-xl-block">
           <nav class="site-navigation position-relative text-right" role="navigation">
             <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-              <li class="active">
+              <li>
                 <%= link_to root_path do %>
                   <span><%= t ".home" %></span>
                 <% end %>
@@ -29,22 +29,19 @@
                   <span><%= t ".place" %></span>
                 <% end %>
                 <ul class="dropdown arrow-top">
-                  <li>
-                    <%= link_to "#" do %>
-                      <span><%= t ".hotel" %></span>
-                    <% end %>
-                  </li>
-                  <li>
-                    <%= link_to "#" do %>
-                      <span><%= t ".hotel" %></span>
-                    <% end %>
-                  </li>
+                  <% @travel_place_types.each do |type| %>
+                    <li>
+                      <%= link_to travel_places_list_place_path(id: type[1]) do %>
+                        <span><%= type[0] %></span>
+                      <% end %>
+                    </li>
+                  <% end %>
                 </ul>
               </li>
               <% if user_signed_in? %>
                 <li>
                   <%= link_to newfeed_user_path(current_user) do %>
-                    <span><%= t ".new_feed" %></span>
+                    <span><%= t ".news_feed" %></span>
                   <% end %>
                 </li>
                 <li class="has-children">

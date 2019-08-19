@@ -4,15 +4,15 @@
 <div class="site-section bg-light">
     <div class="container">
             <div class="list_post">
-                <% if @travel_places.nil? %>
-                  <h1><% t ".not_found" %></h1>
+                <% if @travel_places.blank? %>
+                  <h1><%= t ".not_found" %></h1>
                 <% else %>
                   <% @travel_places.each do |travel_place| %>
                   <div class="d-block d-md-flex listing-horizontal">
 
                       <a href="#" class="img d-block">
                       <% if travel_place.travel_place_images.first %>
-                          <%= image_tag(travel_place.travel_place_images.first.link, class: "img-fluid") %>
+                          <%= image_tag(travel_place.travel_place_images.first.link, class: "img-fluid picture") %>
                       <% end %>
                       <span class="category"><%= travel_place.type_travel_place.name %></span>
                       </a>

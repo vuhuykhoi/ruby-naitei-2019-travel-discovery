@@ -1,0 +1,81 @@
+<% provide :title, @places.name %>
+<% provide :header_partial, "shared/header_partial/title" %>
+  <div class="site-section">
+    <div class="container">
+      <div class="row detail">
+        <div class="col-sm-6">
+          <% if !@places.travel_place_images.empty? %>
+          <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel" data-interval="false">
+            <div class="carousel-inner box_center" role="listbox">
+              <% @places.travel_place_images.each_with_index do |img, i| %>
+                <div class="carousel-item <%= (i == 0)? 'active': '' %>">
+                  <%= image_tag(img.link, class: "img-fluid mb-4 image_detail")%>
+                </div>
+              <% end %>
+            </div>
+            <a class="carousel-control-prev" href="#carousel-thumb" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-thumb" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+            <ol class="carousel-indicators">
+              <div class="row thumb">
+                <% @places.travel_place_images.each_with_index do |img, i| %>
+                  <li data-target="#carousel-thumb" class="<%= (i == 0)? 'active': '' %>" data-slide-to="<%= i%>">
+                    <%= image_tag(img.link, class: "img-thumb")%>
+                  </li>
+                <% end %>
+              </div>
+            </ol>
+          </div>
+          <% end %>
+        </div>
+        <div class="col-sm-6 content border-bottom">
+          <h3><%= @places.city.name %></h3>
+          <h5 class="badge badge-info"><%= @places.type_travel_place.name %></h5>
+          <div class="row ml-1">
+            <%= rating_for @places, "quality", avg: true, enable_half: true %>
+            (<%= I18n.t(:"label.rater", count: @places.rates("quality").size) %>)
+          </div>
+          <p class="mb-5 text_content "><%= truncate(@places.content, length: 500) %></p>
+          <div class="mb-3 button_bottom">
+            <div class="box_center">
+              <%= link_to current_user do %>
+                <span class="btn btn-primary btn-md text-white"><%= t ".review_place" %></span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% if !@posts.blank? %>
+        <h2 class="mb-5 text-primary text_center"><%= t ".place_review" %></h2>
+        <div class="border-bottom box mb-5">
+          <div class="mb-5">
+            <% @posts.each do |post| %>
+              <div class="row post mb-3">
+                <div class="user_box pt-3">
+                  <%= link_to gravatar_for(post.user, size: 100), post.user %>
+                  <p class="mt-2"><%= post.user.username %></p>
+                  <span>
+                    <i class="far fa-thumbs-up mr-2"></i><%= post.reactions.count %>
+                    <i class="fa fa-comment m-2"></i><%= post.comments.count %>
+                  </span>
+
+                </div>
+                <div class="content_box">
+                  <h3><%= link_to truncate(post.title, length: 50) , posts_show_path(id: post.id), class: "mb-3 category" %></h3>
+                  <p><%= truncate(post.content, length: 100) %></p>
+                  <p class="pt-4"><%= t time_ago_in_words(post.created_at) %></p>
+                </div>
+              </div>
+            <% end %>
+        </div>
+        </div>
+
+      <% end %>
+
+      <h2 class="mb-5 text-primary text_center"><%= t ".more" %></h2>
+      <%= render "shared/listing_place" %>
+  </div>
+</div>
