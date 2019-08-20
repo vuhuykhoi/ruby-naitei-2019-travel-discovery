@@ -11,9 +11,7 @@ function ready(){
   });
   */
   $(".dropdown_notification").click(function(){
-    console.log("dropdown click!");
     $(this).parent().toggleClass("open");
-    console.log($(this).parent().attr("class").split(/\s+/));
   });
 }
 $(document).ready(ready);

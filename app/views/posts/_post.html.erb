@@ -21,8 +21,6 @@
             </span>
         <% end %>
         <span>
-          <%= post.travel_place.average("quality").avg if post.travel_place.average("quality") %>
-          <%= I18n.t(:"label.rater", count: post.travel_place.rates("quality").count) %>
           <%= rating_for post.travel_place, "quality", avg: true,readonly: true, enable_half: true %>
         </span>
       </div>

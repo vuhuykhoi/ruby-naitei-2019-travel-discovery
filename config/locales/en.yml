@@ -105,7 +105,7 @@ en:
     index:
       title: "Search"
       not_found: "Not Found!"
-  
+
   travel_places:
     list_place:
       title: "List Place"
@@ -132,6 +132,9 @@ en:
     delete: "Delete"
     post: "Post"
   label:
+    notifications: "Notifications"
+    see_all: "See all"
+    your_notifications: "Your notifications"
     signup: "Sign up"
     email: "Email"
     password: "Password"

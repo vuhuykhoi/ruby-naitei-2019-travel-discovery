@@ -39,7 +39,10 @@
               <%= f.submit t("button.login"), class: "btn btn-primary btn-md text-white" %>
             </div>
           </div>
-          <%= link_to t("page_title.sign-in-fb"), user_facebook_omniauth_authorize_path %>
+          <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-primary btn-md text-white" do %>
+            <i class="fab fa-facebook-square fa-lg"></i>
+            <%= t("page_title.sign-in-fb") %>
+          <% end %>
         <% end %>
       </div>
     </div>

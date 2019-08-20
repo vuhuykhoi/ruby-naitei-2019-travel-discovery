@@ -19,6 +19,6 @@ class Reaction < ApplicationRecord
   private
 
   def post_notificable_path
-    post_path id: post.id
+    posts_show_path id: post.id
   end
 end

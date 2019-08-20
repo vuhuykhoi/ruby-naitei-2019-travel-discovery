@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :get_place_type
 
   def get_place_type
-    @travel_place_types = TypeTravelPlace.pluck(:id, :name)
+    @travel_place_types = TypeTravelPlace.pluck :name, :id
   end
 
   protected

@@ -34,6 +34,10 @@
         <div class="col-sm-6 content border-bottom">
           <h3><%= @places.city.name %></h3>
           <h5 class="badge badge-info"><%= @places.type_travel_place.name %></h5>
+          <div class="row ml-1">
+            <%= rating_for @places, "quality", avg: true, enable_half: true %>
+            (<%= I18n.t(:"label.rater", count: @places.rates("quality").size) %>)
+          </div>
           <p class="mb-5 text_content "><%= truncate(@places.content, length: 500) %></p>
           <div class="mb-3 button_bottom">
             <div class="box_center">
@@ -68,7 +72,7 @@
             <% end %>
         </div>
         </div>
-        
+
       <% end %>
 
       <h2 class="mb-5 text-primary text_center"><%= t ".more" %></h2>
