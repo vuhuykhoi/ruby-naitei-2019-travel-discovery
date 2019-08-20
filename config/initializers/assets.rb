@@ -6,6 +6,7 @@ Rails.application.config.assets.precompile += %w( admin.css )
 Rails.application.config.assets.precompile += %w( admin.js )
 Rails.application.config.assets.precompile += %w( custom.js )
 Rails.application.config.assets.precompile += %w( notification.js )
+Rails.application.config.assets.precompile += %w( ckeditor/*)
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
 # Add Yarn node_modules folder to the asset load path.

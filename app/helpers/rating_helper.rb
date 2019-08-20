@@ -137,4 +137,12 @@ end
                 "data-target-format" => targetFormat,
                 "data-target-score" => targetScore
   end
+
+  def percent a, b
+    a.to_f / b.to_f * 100.0 if b != 0
+  end
+
+  def count_raters rateable_obj, dimension = nil, num_of_stars
+    rateable_obj.rates("#{dimension}").where("stars = #{num_of_stars}").size
+  end
 end

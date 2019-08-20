@@ -12,8 +12,7 @@ class Reaction < ApplicationRecord
   scope :get_like, ->(reaction_type_id, post_id){where "reaction_type_id = ? and post_id =?", reaction_type_id, post_id}
 
   acts_as_notifiable :users,
-    targets: ->(reaction, _key){
-               ([reaction.post.user] - [reaction.user]).uniq },
+    targets: ->(reaction, _key){([reaction.post.user] - [reaction.user]).uniq},
     notifiable_path: :post_notificable_path
 
   private

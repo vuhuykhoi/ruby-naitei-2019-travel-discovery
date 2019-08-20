@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: :show
   before_action :correct_user, only: :destroy
 
   def create
