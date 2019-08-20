@@ -21,7 +21,7 @@
   </div>
   <div class="field">
      <%= f.label :Content, class: "text-black" %>
-    <%= f.text_area :content, placeholder: t("label.post_content"),class: "form-control" %>
+    <%= f.cktext_area :content, placeholder: t("label.post_content"),class: "ckeditor" %>
   </div>
 
   <%= f.fields_for :Post_Images do |p| %>
@@ -35,4 +35,5 @@
 <% end %>
 </div>
 
+<%= javascript_include_tag Ckeditor.cdn_url %>
 <%= javascript_include_tag("custom") %>
