@@ -4,7 +4,7 @@
   <span class="user"><%= link_to post.user.username, post.user %></span>
 
   <span class="timestamp">
-    <%= t("label.posted") %> <%= I18n.t(:time_ago,time: time_ago_in_words(post.created_at) )%>.
+    <%= t("label.posted") %> <%= t(:time_ago,time: time_ago_in_words(post.created_at) )%>.
     <% if current_user == post.user %>
     <%= link_to t("button.delete"), post, method: :delete,
                                      data: { confirm: t("dialog.delete_post_confirm"),remote: true } %>
@@ -21,7 +21,7 @@
             </span>
         <% end %>
         <span>
-          <%= rating_for post.travel_place, "quality", avg: true,readonly: true, enable_half: true %>
+          <%= rating_for post.travel_place, "quality", avg: true,readonly: true %>
         </span>
       </div>
       <h5><%= post.title %></h5>
@@ -61,7 +61,7 @@
         <%= link_to reaction_path(post.id), remote: true do %>
         <span id ="num_of_likes-<%= post.id %>">
           <% num_of_likes = post.num_of_likes %>
-          <%= I18n.t(:"label.like", count: num_of_likes)%>
+          <%= t(:"label.like", count: num_of_likes)%>
         </span>
         <% end %>
       </span>
@@ -70,7 +70,7 @@
         <%= link_to comment_path(post.id), remote: true do %>
         <span id="num_of_comments-<%= post.id %>">
           <% num_of_comments = post.num_of_comments %>
-          <%= I18n.t(:"label.comment", count: num_of_comments)%>
+          <%= t(:"label.comment", count: num_of_comments)%>
         </span>
        <% end %>
       </span>

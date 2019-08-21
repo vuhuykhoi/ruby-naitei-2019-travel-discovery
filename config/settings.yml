@@ -21,3 +21,8 @@ reaction_type:
 popular_places: 6
 popular_posts: 6
 default_avatar: "user1-128x128.jpg"
+rate_point_round: 2
+truncate_length:
+  place_content: 500
+  post_title: 50
+  post_content: 100

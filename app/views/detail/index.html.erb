@@ -35,10 +35,9 @@
           <h3><%= @places.city.name %></h3>
           <h5 class="badge badge-info"><%= @places.type_travel_place.name %></h5>
           <div class="row ml-1">
-            <%= rating_for @places, "quality", avg: true, enable_half: true %>
-            (<%= I18n.t(:"label.rater", count: @places.rates("quality").size) %>)
+
           </div>
-          <p class="mb-5 text_content "><%= truncate(@places.content, length: 500) %></p>
+          <p class="mb-5 text_content "><%= truncate(@places.content, length: Settings.truncate_length.place_content) %></p>
           <div class="mb-3 button_bottom">
             <div class="box_center">
               <%= link_to current_user do %>
@@ -48,6 +47,57 @@
           </div>
         </div>
       </div>
+
+      <hr>
+      <h2 class="mb-5 text_center text-primary">
+        <%= t ".label.rating" %>
+      </h2>
+      <% if user_signed_in? %>
+        <div class= "row">
+          <%= t"label.your_rating" %>:<%= rating_for_user @places, current_user, "quality",  disable_after_rate: true, space: true %>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="row">
+            <div class="col-xs-12 col-md-6 text-center">
+              <h1 class="rating-num">
+                <% if @places.average("quality") %>
+                  <%= @places.average("quality").avg.round(Settings.rate_point_round) %>
+                <% else %>
+                  0
+                <% end %>
+              </h1>
+              <%= rating_for @places, "quality", avg: true, readonly: true, space: true %>
+              <div>
+                <span class="fas fa-user"></span>
+                <% total_raters = @places.rates("quality").size %>
+                <%= I18n.t(:"label.rater", count: total_raters)%>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <div class="row rating-desc">
+                <% 5.times do |i| %>
+                  <% num_of_raters = count_raters(@places,"quality",5-i) %>
+                  <div class="col-xs-2 col-md-2 text-right pr-0">
+                    <%= 5-i %> <i class="fas fa-star fa-xs"></i>
+                  </div>
+                  <div class="col-xs-8 col-md-8 pt-1">
+                    <div class="progress">
+                      <div class="progress-bar" style="width:<%= percent(num_of_raters, total_raters) %>%"></div>
+                    </div>
+                  </div>
+                  <div class= "col-xs-2 col-md-2 pl-0">
+                     <%= num_of_raters %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
       <% if !@posts.blank? %>
         <h2 class="mb-5 text-primary text_center"><%= t ".place_review" %></h2>
         <div class="border-bottom box mb-5">
@@ -55,7 +105,7 @@
             <% @posts.each do |post| %>
               <div class="row post mb-3">
                 <div class="user_box pt-3">
-                  <%= link_to gravatar_for(post.user, size: 100), post.user %>
+                  <%= link_to gravatar_for(post.user, size: Settings.user.gravatar_size), post.user %>
                   <p class="mt-2"><%= post.user.username %></p>
                   <span>
                     <i class="far fa-thumbs-up mr-2"></i><%= post.reactions.count %>
@@ -64,8 +114,8 @@
 
                 </div>
                 <div class="content_box">
-                  <h3><%= link_to truncate(post.title, length: 50) , posts_show_path(id: post.id), class: "mb-3 category" %></h3>
-                  <p><%= truncate(post.content, length: 100) %></p>
+                  <h3><%= link_to truncate(post.title, length: Settings.truncate_length.post_title) , posts_show_path(id: post.id), class: "mb-3 category" %></h3>
+                  <p><%= truncate(sanitize(post.content), length: Settings.truncate_length.post_content) %></p>
                   <p class="pt-4"><%= t time_ago_in_words(post.created_at) %></p>
                 </div>
               </div>

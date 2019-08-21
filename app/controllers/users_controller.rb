@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: :show
   before_action :load_user, only: %i(show destroy following followers)
   before_action :admin_user, only: :destroy
 
